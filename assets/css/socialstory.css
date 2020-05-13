@@ -1,0 +1,329 @@
+
+.circle{
+
+    width:90px;
+    position:absolute;
+ 
+}
+@media only screen and (max-width: 1680px) {
+  .inactive{
+    margin-top: 9px !important;
+}
+.active{
+    margin-top: 9px !important;
+}
+}
+@media only screen and (max-width: 1280px) {
+  .inactive{
+    margin-top: 7px !important;
+}
+.active{
+    margin-top: 7px !important;
+}
+
+}
+.inactive{
+    margin-top: 11px;
+}
+.active{
+    margin-top: 11px;
+    fill:none;
+    stroke:#8a3ab9;
+    stroke-linecap: round;
+    stroke-width:3;
+    animation: stroke-draw 6s ease-out none alternate; 
+}
+
+
+@keyframes stroke-draw {
+  from{
+    stroke:#8a3ab9;
+    stroke-dasharray: 1;
+  }
+  to{
+    stroke:#cd486b;
+    transform:rotate(180deg);
+    stroke-dasharray: 8;
+  }
+}
+
+
+.img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    border-radius: 50%;
+    height: 75px;
+    
+}
+
+.avatar {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+.link{
+  display: inline-block;
+}
+
+.storyrocks-collection .storytime {
+	position: relative;
+	width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+  	-moz-transition: opacity 0.4s;
+  	-webkit-transition: opacity 0.4s;
+}
+
+.storyrocks-collection .story-cover {
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	background-color: #000000;
+	opacity: 0.85;
+}
+
+.storyrocks-collection .story-nav-left {
+	height: 6vh;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+    font-family: 'Helvetica', sans-serif;
+    vertical-align: middle;
+    font-size: 85%;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.storyrocks-collection .story-nav-right {
+	height: 6vh;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    text-align: right;
+    width: 20%;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.storyrocks-collection span.story-text {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.storyrocks-collection span.story-date {
+	opacity: 0.6;
+	font-size: 90%;
+	padding-left: 10px;
+}
+
+.storyrocks-collection .story-timeline {
+	height: 3vh;
+    display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.storyrocks-collection .story-timeline-item {
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	height: 2px;
+	position: relative;
+	margin-right: 5px;
+}
+
+.storyrocks-collection .story-timeline-item:last-child {
+	margin-right: 0px;
+}
+
+.storyrocks-collection .story-timeline-line {
+	background: rgba(255,255,255,.35);
+	border-radius: 2px;
+	height: 2px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.storyrocks-collection .story-timeline-line-active {
+	-webkit-transition: width .25s linear;
+	transition: width .25s linear;
+	width: auto;
+	will-change: width;
+	border-radius: 2px;
+	height: 2px;
+	position: absolute;
+	top: 0;
+	background: #ffffff;
+}
+
+.storyrocks-collection .story-icon {
+    height: 90%;
+    object-fit: contain;
+    border-radius: 50%;
+    vertical-align:middle;
+    border: 2px solid #ffffff;
+}
+
+.storyrocks-collection .story-window {
+	z-index: 1010;
+	position: fixed;
+  	left: 50%;
+  	top: 50%;
+  	-webkit-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+  	max-height: 90%;
+  	display: block;
+}
+
+.storyrocks-collection .story-video {
+	display: block;
+	height: 80vh;
+	width: 100%;
+	object-fit: contain;
+	background-color: rgba(0,0,0,0.0);
+}
+
+.storyrocks-collection .story-video video {
+	max-height: 100% !important;
+	object-fit: contain;
+	display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.storyrocks-collection .close {
+	position: absolute;
+	right: 0;
+	bottom: 20%;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
+}
+
+.storyrocks-collection .close:hover {
+  opacity: 1;
+}
+
+.storyrocks-collection .close:before, .storyrocks-collection .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #ffffff;
+}
+
+.storyrocks-collection .close:before {
+  transform: rotate(45deg);
+}
+
+.storyrocks-collection .close:after {
+  transform: rotate(-45deg);
+}
+
+.storyrocks-collection .story-arrow {
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    display: block;
+    padding: 8px;
+    opacity: 0.2;
+}
+
+.storyrocks-collection .story-arrow:hover {
+    opacity: 0.9;
+}
+
+
+.storyrocks-collection .right {
+	position: absolute;
+	right: -10%;
+	top: 50%;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.storyrocks-collection .left {
+	position: absolute;
+	left: -10%;
+	top: 50%;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.storyrocks-collection .spinner {
+  width: 70px;
+  text-align: center;
+  margin:auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -30px;
+}
+
+.storyrocks-collection .spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #999999;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: st-sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: st-sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.storyrocks-collection .spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.storyrocks-collection .spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes st-sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes st-sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
