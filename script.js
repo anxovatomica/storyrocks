@@ -1,9 +1,9 @@
 
-//Load CSS 
+/*Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
 script.href = "https://www.cascoplegable.com/linus/storyrocks/letsrocks/socialstory.css";
-document.head.appendChild(script); 
+document.head.appendChild(script); */
 
 document.onload = function(){localStorage.clear();};
 
@@ -457,6 +457,7 @@ function pause() {
         document.getElementsByTagName("body")[0].style.overflow =  "auto";
         //Clear time interval for pictures
         clearInterval(downloadTimer);
+        width = 1;
     	// Pause currently playing video
         video.pause();
         // Hide Social Story popup
