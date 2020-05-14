@@ -53,7 +53,7 @@ document.onload = function(){localStorage.clear();};
 					'<div class="story-nav-left"><img class="story-icon" src="" /> <span class="story-text"></span><span class="story-date"></span></div><div class="story-nav-right"><a href="#" class="close story-close" onclick="socialStory.close();"></a></div>' +
 				'</div>' +
 				'<div class="story-timeline"></div>' +
-				'<div class="story-video" onclick="socialStory.next();">' +
+				'<div class="story-video" >' +//onclick="socialStory.next();"
 					'<video class="story-next video" preload src="" playsinline></video>' +
 					'<img class="story-next images" loading="auto" src="">' +
 				'</div>' +
