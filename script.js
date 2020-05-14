@@ -1,9 +1,9 @@
 
-/*Load CSS 
+//Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
 script.href = "https://www.cascoplegable.com/linus/storyrocks/letsrocks/socialstory.css";
-document.head.appendChild(script); */
+document.head.appendChild(script); 
 
 document.onload = function(){localStorage.clear();};
 
