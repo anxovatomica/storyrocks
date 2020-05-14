@@ -1,9 +1,9 @@
 
-//Load CSS 
+/*Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
 script.href = "https://www.cascoplegable.com/linus/storyrocks/letsrocks/socialstory.css";
-document.head.appendChild(script); 
+document.head.appendChild(script); */
 
 document.onload = function(){localStorage.clear();};
 
@@ -54,7 +54,7 @@ document.onload = function(){localStorage.clear();};
 				'</div>' +
 				'<div class="story-timeline"></div>' +
 				'<div class="story-video" onclick="socialStory.next();">' +
-					'<video class="story-next video" src="" playsinline></video>' +
+					'<video class="story-next video" preload src="" playsinline></video>' +
 					'<img class="story-next images" loading="auto" src="">' +
 				'</div>' +
 				'<div class="spinner">' +
@@ -150,7 +150,7 @@ for(let i = 0; i < json.length; i++) {
     }
 
 function launch(num) {
-        
+       
         document.getElementsByTagName("body")[0].style.overflow =  "hidden";
 
        var timelineHTML = '';
@@ -185,12 +185,15 @@ function launch(num) {
 
         // Set CSS loading spinner to display: block (i.e. show it)
         storySpinner.style.display = 'block';
+        
         //Don't let the window move while spinner is on
         /*if(video.offsetWidth != 0){
             document.getElementsByClassName("story-window")[0].style.width = video.offsetWidth + "px"
         }else if(image.offsetWidth != 0){
             document.getElementsByClassName("story-window")[0].style.width = image.offsetWidth+ "px"
         }*/
+        
+        
         setTimeout(function() {
             storyTime.setAttribute("style", "display: block; opacity: 1;z-index:2000;");
         }, 10);
@@ -216,6 +219,16 @@ function launch(num) {
         video.src = ' ';
         
         //If file from url is a video
+        //var s1 = document.getElementsByClassName("video")[0];
+        //console.log("video "+ s1.clientWidth);
+        
+        /*if(s1 != 0){
+            document.getElementsByClassName("story-window")[0].style.width = s1.clientWidth + "px"
+        }else if(s2 != 0){
+            document.getElementsByClassName("story-window")[0].style.width = s2.clientWidth + "px"
+        }*/
+            //document.getElementsByClassName("story-window")[0].style.width = ig.clientWidth + "px"
+        
         if(!file(fileExt)){
             
             //Hide image
@@ -227,10 +240,15 @@ function launch(num) {
             //Load it
             video.load();
         
+        //Pause/start video when mouse is over/out
+        document.getElementsByClassName("video")[0].onmouseover = function(){video.pause();};
+        document.getElementsByClassName("video")[0].onmouseout = function(){video.play();};
+        
         //Set styles
         thisTimeline.style.width = '0%';
         video.style.maxWidth = "100%"
         video.style.maxHeight = "100%"
+        
         // When video can play, hide spinner
         video.oncanplay = function() {
             storySpinner.style.display = 'none';
@@ -245,6 +263,7 @@ function launch(num) {
         video.addEventListener('ended', videoEnded, false);
         
         }else{
+            
             //If file from url is a photo
             document.getElementsByClassName("images")[0].style.display = "inline"
             document.getElementsByClassName("video")[0].style.display = "none"
@@ -258,31 +277,75 @@ function launch(num) {
             image.style.maxWidth = "100%"
             image.style.maxHeight = "100%"
             
+            //Pause/start video when mouse is over/out
+            document.getElementsByClassName("images")[0].onmouseover = function(){pause();};
+            document.getElementsByClassName("images")[0].onmouseout = function(){imageUpdate();};
+            
              // Add event listener to track image progress and run function imageUpdate()
             image.addEventListener('load', imageUpdate, false);
             // Add event listerer to run function imageEnded() at end of image time
             image.addEventListener('seeking', imageEnded, false);
-
+            
         }
+        
+        
     }
     
+    
     //Weird function to calculate image time on lightbox and set progress bar
-    var timeleft
+    /*var timeleft
     var downloadTimer
+    var percentage = 1
     function imageUpdate(){
         timeleft = 1.00;
         var duration = 15;
+        clearInterval(downloadTimer)
          downloadTimer = setInterval(function(){
             if(timeleft >= duration +1){
+                percentage=1
                 clearInterval(downloadTimer);
                 imageEnded()
             }else{
-                var percentage = Math.ceil((100 / duration) * timeleft);
+                percentage = Math.ceil((100 / duration) * timeleft);
+                console.log(percentage)
                 thisTimeline.style.width = percentage   + '%';
                 timeleft += 1;
             }
         },250);
     }
+    function pause() {
+  clearInterval(downloadTimer);
+}*/
+    
+  
+var downloadTimer;
+var width = 1;
+
+function imageUpdate() {
+ 
+ 
+  clearInterval(downloadTimer);
+  downloadTimer = setInterval(frame, 50);
+
+  function frame() {
+    if (width >= 100) {
+      width = 1;
+      imageEnded()
+      clearInterval(downloadTimer);
+      
+    } else {
+      width++;
+      console.log(width)
+      thisTimeline.style.width = width + '%';
+    }
+  }
+}
+
+function pause() {
+  clearInterval(downloadTimer);
+}
+  
+
 
     function imageEnded() {
     	// Remove all event listeners on image end so they don't get duplicated.
@@ -295,6 +358,8 @@ function launch(num) {
     function timeUpdate() {
     	// Calculate percentage of video played and update the videos timeline width accordingly
         var percentage = Math.ceil((100 / video.duration) * video.currentTime);
+        //console.log("duration "+video.duration)
+        //console.log("Current time: " +video.currentTime)
         thisTimeline.style.width = percentage + '%';
     }
 
@@ -313,9 +378,11 @@ function launch(num) {
         // Advance play count to next video
         slide++;
         clearInterval(downloadTimer);
+        width = 1;
         // If it's the last slide but not the last story, then next story
         if (slide >= json[start].slides.length && start < json.length -1 ) {
                 clearInterval(downloadTimer);
+                width = 1;
                 //Hide active circle
                 document.getElementsByClassName("active")[start].style.display = "none"
                 //Show story has been seen(inactive)
@@ -346,6 +413,7 @@ function launch(num) {
     function prev() {
         
         clearInterval(downloadTimer);
+        width = 1;
     	// If previous video was not first video set its timeline to 0% 
         if (slide != 0) {
             thisTimeline.style.width = '0%';
@@ -355,6 +423,7 @@ function launch(num) {
         //If first slide of first story, relaunch
         if (start <= 0 && slide <= 0) {
                 clearInterval(downloadTimer);
+                width = 1;
                 start = 0;
                 slide = 0;
             launch(start)
@@ -367,6 +436,7 @@ function launch(num) {
         }
         //Otherwise run previuos slide
         else {
+            clearInterval(downloadTimer);
             launch(slide);
         }
        
@@ -428,7 +498,6 @@ function launch(num) {
         close();
     };
 
-        
         //Send id from div id and get data in json structure
         var divId = document.getElementsByClassName("storyrocks-collection")[0].getAttribute('data-id');
         //GET Ajax request with js
@@ -442,7 +511,7 @@ function launch(num) {
         xhReq.send(null);
         var serverResponse = xhReq.responseText;
         var json = JSON.parse(serverResponse)
- 
+
         //Create Story object and asign it to json recived
 		var socialStory = new Story({
 			playlist: json
