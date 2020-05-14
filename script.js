@@ -5,8 +5,6 @@ script.rel = "stylesheet"
 script.href = "https://www.cascoplegable.com/linus/storyrocks/letsrocks/socialstory.css";
 document.head.appendChild(script); */
 
-document.onload = function(){localStorage.clear();};
-
 //Story Rocks
 
     // Declare plugin's variables
@@ -53,7 +51,7 @@ document.onload = function(){localStorage.clear();};
 					'<div class="story-nav-left"><img class="story-icon" src="" /> <span class="story-text"></span><span class="story-date"></span></div><div class="story-nav-right"><a href="#" class="close story-close" onclick="socialStory.close();"></a></div>' +
 				'</div>' +
 				'<div class="story-timeline"></div>' +
-				'<div class="story-video" >' +//onclick="socialStory.next();"
+				'<div class="story-video" >' +
 					'<video class="story-next video" preload src="" playsinline></video>' +
 					'<img class="story-next images" loading="auto" src="">' +
 				'</div>' +
@@ -241,8 +239,8 @@ function launch(num) {
             video.load();
         
         //Pause/start video when mouse is over/out
-        document.getElementsByClassName("video")[0].onmouseover = function(){video.pause();};
-        document.getElementsByClassName("video")[0].onmouseout = function(){video.play();};
+        document.getElementsByClassName("video")[0].onmousedown = function(){video.pause();};
+        document.getElementsByClassName("video")[0].onmouseup = function(){video.play();};
         
         //Set styles
         thisTimeline.style.width = '0%';
@@ -278,8 +276,8 @@ function launch(num) {
             image.style.maxHeight = "100%"
             
             //Pause/start video when mouse is over/out
-            document.getElementsByClassName("images")[0].onmouseover = function(){pause();};
-            document.getElementsByClassName("images")[0].onmouseout = function(){imageUpdate();};
+            document.getElementsByClassName("images")[0].onmousedown = function(){pause();};
+            document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();};
             
              // Add event listener to track image progress and run function imageUpdate()
             image.addEventListener('load', imageUpdate, false);
