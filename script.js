@@ -1,9 +1,9 @@
 
-//Load CSS 
+/*Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
 script.href = "https://www.cascoplegable.com/linus/storyrocks/letsrocks/socialstory.css";
-document.head.appendChild(script); 
+document.head.appendChild(script); */
 
 //Story Rocks
 
@@ -52,7 +52,7 @@ document.head.appendChild(script);
 				'</div>' +
 				'<div class="story-timeline"></div>' +
 				'<div class="story-video" >' +
-					'<video class="story-next video" preload src="" playsinline></video>' +
+					'<video class="story-next video" preload="auto" src="" poster="https://cascoplegable.com/linus/storyrocks/letsrocks/images/negre.jpg" playsinline></video>' +
 					'<img class="story-next images" loading="auto" src="">' +
 				'</div>' +
 				'<div class="spinner">' +
@@ -65,7 +65,6 @@ document.head.appendChild(script);
 		// Add HTML to storytime div element
         Div.innerHTML += baseHTML;
 
-        
        
     //Stories father
     var stories = document.createElement("div");
@@ -182,7 +181,8 @@ function launch(num) {
         }
 
         // Set CSS loading spinner to display: block (i.e. show it)
-        storySpinner.style.display = 'block';
+        //storySpinner.style.display = 'block';
+        
         
         //Don't let the window move while spinner is on
         /*if(video.offsetWidth != 0){
@@ -238,7 +238,7 @@ function launch(num) {
             //Load it
             video.load();
         
-        //Pause/start video when mouse is over/out
+        // Pause/play video when click
         document.getElementsByClassName("video")[0].onmousedown = function(){video.pause();};
         document.getElementsByClassName("video")[0].onmouseup = function(){video.play();};
         
@@ -275,7 +275,7 @@ function launch(num) {
             image.style.maxWidth = "100%"
             image.style.maxHeight = "100%"
             
-            //Pause/start video when mouse is over/out
+            // Pause/play image when click
             document.getElementsByClassName("images")[0].onmousedown = function(){pause();};
             document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();};
             
@@ -326,14 +326,14 @@ function imageUpdate() {
   downloadTimer = setInterval(frame, 50);
 
   function frame() {
-    if (width >= 100) {
+    if (width >= 105) {
       width = 1;
       imageEnded()
       clearInterval(downloadTimer);
       
     } else {
       width++;
-      console.log(width)
+      //console.log(width)
       thisTimeline.style.width = width + '%';
     }
   }
