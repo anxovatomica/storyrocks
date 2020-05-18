@@ -239,8 +239,8 @@ function launch(num) {
             video.load();
         
         // Pause/play video when click for desktop
-        document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
-        document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
+        document.getElementsByClassName("video")[0].onmousedown = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
+        document.getElementsByClassName("video")[0].onmouseup = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
         
         // Pause/play video when click for touch screen
         document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
@@ -284,6 +284,11 @@ function launch(num) {
             document.getElementsByClassName("images")[0].onmousedown = function(){pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
             document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
             
+            // Pause/play video when click for touch screen
+            document.getElementsByClassName("images")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
+            document.getElementsByClassName("images")[0].touchend = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
+        
+        
              // Add event listener to track image progress and run function imageUpdate()
             image.addEventListener('load', imageUpdate, false);
             // Add event listerer to run function imageEnded() at end of image time
