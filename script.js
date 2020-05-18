@@ -52,7 +52,7 @@ document.head.appendChild(script);
 				'</div>' +
 				'<div class="story-timeline"></div>' +
 				'<div class="story-video" >' +
-					'<video class="story-next video" preload="auto" src="" poster="https://cascoplegable.com/linus/storyrocks/letsrocks/images/negre.jpg" playsinline></video>' +
+					'<video class="story-next video" preload="auto" src="" poster="https://cdn.jsdelivr.net/gh/anxovatomica/storyrocks/negre.jpg" playsinline></video>' +
 					'<img class="story-next images" loading="auto" src="">' +
 				'</div>' +
 				'<div class="spinner">' +
@@ -234,13 +234,18 @@ function launch(num) {
             //Show video box
             document.getElementsByClassName("video")[0].style.display = "inline"
             //Set video
-            video.src = json[start].slides[slide].url;
+            video.src = json[start].slides[slide].url
             //Load it
             video.load();
         
-        // Pause/play video when click
-        document.getElementsByClassName("video")[0].onmousedown = function(){video.pause();};
-        document.getElementsByClassName("video")[0].onmouseup = function(){video.play();};
+        // Pause/play video when click for desktop
+        document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
+        document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
+        
+        // Pause/play video when click for touch screen
+        document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
+        document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
+        
         
         //Set styles
         thisTimeline.style.width = '0%';
@@ -275,9 +280,9 @@ function launch(num) {
             image.style.maxWidth = "100%"
             image.style.maxHeight = "100%"
             
-            // Pause/play image when click
-            document.getElementsByClassName("images")[0].onmousedown = function(){pause();};
-            document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();};
+            // Pause/play image when click for desktop
+            document.getElementsByClassName("images")[0].onmousedown = function(){pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
+            document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
             
              // Add event listener to track image progress and run function imageUpdate()
             image.addEventListener('load', imageUpdate, false);
