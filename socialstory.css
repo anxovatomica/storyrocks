@@ -35,7 +35,7 @@
     stroke:#8a3ab9;
     stroke-linecap: round;
     stroke-width:3;
-    animation: stroke-draw 6s ease-out none alternate; 
+    /*animation: stroke-draw 6s ease-out none alternate; */
 }
 
 
