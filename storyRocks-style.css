@@ -1,41 +1,41 @@
-@media only screen and (max-width: 501px) {
-  .story-window {
+@media only screen and (max-width: 500px) {
+  .storyRocks-story-window {
     width: 300px;
   }
 }
 @media only screen and (max-width: 1680px) {
-  .inactive{
+  .storyRocks-inactive{
     margin-top: 9px !important;
 }
-.active{
+.storyRocks-active{
     margin-top: 9px !important;
 }
 }
 @media only screen and (max-width: 1280px) {
-  .inactive{
+  .storyRocks-inactive{
     margin-top: 7px !important;
 }
-.active{
+.storyRocks-active{
     margin-top: 7px !important;
 }
 
 }
-.circle{
+.storyRocks-circle{
     margin-left: 5%;
     width:90px;
     position:absolute;
  
 }
-.inactive{
+.storyRocks-inactive{
     margin-top: 11px;
 }
-.active{
+.storyRocks-active{
     margin-top: 11px;
     fill:none;
     stroke:#8a3ab9;
     stroke-linecap: round;
     stroke-width:3;
-    /*animation: stroke-draw 6s ease-out none alternate; */
+    /*animation: stroke-draw 2s ease-out none alternate; */
 }
 
 
@@ -52,7 +52,7 @@
 }
 
 
-.img {
+.storyRocks-img {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -63,17 +63,17 @@
     
 }
 
-.avatar {
+.storyRocks-avatar {
     display: inline-block;
     position: relative;
     width: 100px;
     height: 100px;
 }
-.link{
+.storyRocks-link{
   display: inline-block;
 }
 
-.storyrocks-collection .storytime {
+.storyrocks-collection .storyRocks-storytime {
 	position: relative;
 	width: 100%;
     height: 100%;
@@ -85,7 +85,7 @@
   	-webkit-transition: opacity 0.4s;
 }
 
-.storyrocks-collection .story-cover {
+.storyrocks-collection .storyRocks-story-cover {
 	z-index: 1000;
 	position: fixed;
 	top: 0;
@@ -98,7 +98,7 @@
 	opacity: 0.85;
 }
 
-.storyrocks-collection .story-nav-left {
+.storyrocks-collection .storyRocks-story-nav-left {
 	height: 6vh;
     display: inline-block;
     overflow: hidden;
@@ -113,7 +113,7 @@
     text-align: left;
 }
 
-.storyrocks-collection .story-nav-right {
+.storyrocks-collection .storyRocks-story-nav-right {
 	height: 6vh;
     display: inline-block;
     overflow: hidden;
@@ -125,18 +125,18 @@
     padding: 0;
 }
 
-.storyrocks-collection span.story-text {
+.storyrocks-collection span.storyRocks-story-text {
     font-weight: bold;
     padding-left: 10px;
 }
 
-.storyrocks-collection span.story-date {
+.storyrocks-collection span.storyRocks-story-date {
 	opacity: 0.6;
 	font-size: 90%;
 	padding-left: 10px;
 }
 
-.storyrocks-collection .story-timeline {
+.storyrocks-collection .storyRocks-story-timeline {
 	height: 3vh;
     display: -webkit-box;
 	display: -webkit-flex;
@@ -154,7 +154,7 @@
 	align-items: center;
 }
 
-.storyrocks-collection .story-timeline-item {
+.storyrocks-collection .storyRocks-story-timeline-item {
 	-webkit-box-flex: 1;
 	-webkit-flex-grow: 1;
 	-ms-flex-positive: 1;
@@ -164,11 +164,11 @@
 	margin-right: 5px;
 }
 
-.storyrocks-collection .story-timeline-item:last-child {
+.storyrocks-collection .storyRocks-story-timeline-item:last-child {
 	margin-right: 0px;
 }
 
-.storyrocks-collection .story-timeline-line {
+.storyrocks-collection .storyRocks-story-timeline-line {
 	background: rgba(255,255,255,.35);
 	border-radius: 2px;
 	height: 2px;
@@ -177,7 +177,7 @@
 	width: 100%;
 }
 
-.storyrocks-collection .story-timeline-line-active {
+.storyrocks-collection .storyRocks-story-timeline-line-active {
 	-webkit-transition: width .25s linear;
 	transition: width .25s linear;
 	width: auto;
@@ -189,7 +189,7 @@
 	background: #ffffff;
 }
 
-.storyrocks-collection .story-icon {
+.storyrocks-collection .storyRocks-story-icon {
     height: 90%;
     object-fit: contain;
     border-radius: 50%;
@@ -197,7 +197,7 @@
     border: 2px solid #ffffff;
 }
 
-.storyrocks-collection .story-window {
+.storyrocks-collection .storyRocks-story-window {
 	z-index: 1010;
 	position: fixed;
   	left: 50%;
@@ -208,7 +208,7 @@
   	display: block;
 }
 
-.storyrocks-collection .story-video {
+.storyrocks-collection .storyRocks-story-video {
 	display: block;
 	height: 80vh;
 	width: 100%;
@@ -216,7 +216,7 @@
 	background-color: rgba(0,0,0,0.0);
 }
 
-.storyrocks-collection .story-video video {
+.storyrocks-collection .storyRocks-story-video video {
 	max-height: 100% !important;
 	object-fit: contain;
 	display: inline-block;
@@ -224,7 +224,7 @@
     position: relative;
 }
 
-.storyrocks-collection .close {
+.storyrocks-collection .storyRocks-close {
 	position: absolute;
 	right: 0;
 	bottom: 20%;
@@ -236,11 +236,11 @@
   display: block;
 }
 
-.storyrocks-collection .close:hover {
+.storyrocks-collection .storyRocks-close:hover {
   opacity: 1;
 }
 
-.storyrocks-collection .close:before, .storyrocks-collection .close:after {
+.storyrocks-collection .storyRocks-close:before, .storyrocks-collection .storyRocks-close:after {
   position: absolute;
   left: 15px;
   content: ' ';
@@ -249,15 +249,15 @@
   background-color: #ffffff;
 }
 
-.storyrocks-collection .close:before {
+.storyrocks-collection .storyRocks-close:before {
   transform: rotate(45deg);
 }
 
-.storyrocks-collection .close:after {
+.storyrocks-collection .storyRocks-close:after {
   transform: rotate(-45deg);
 }
 
-.storyrocks-collection .story-arrow {
+.storyrocks-collection .storyRocks-story-arrow {
     border: solid #ffffff;
     border-width: 0 2px 2px 0;
     display: block;
@@ -265,12 +265,12 @@
     opacity: 0.2;
 }
 
-.storyrocks-collection .story-arrow:hover {
+.storyrocks-collection .storyRocks-story-arrow:hover {
     opacity: 0.9;
 }
 
 
-.storyrocks-collection .right {
+.storyrocks-collection .storyRocks-right {
 	position: absolute;
 	right: -10%;
 	top: 50%;
@@ -278,7 +278,7 @@
   -webkit-transform: rotate(-45deg);
 }
 
-.storyrocks-collection .left {
+.storyrocks-collection .storyRocks-left {
 	position: absolute;
 	left: -10%;
 	top: 50%;
@@ -286,7 +286,7 @@
     -webkit-transform: rotate(135deg);
 }
 
-.storyrocks-collection .spinner {
+.storyrocks-collection .storyRocks-spinner {
   width: 70px;
   text-align: center;
   margin:auto;
@@ -296,7 +296,7 @@
   margin-left: -30px;
 }
 
-.storyrocks-collection .spinner > div {
+.storyrocks-collection .storyRocks-spinner > div {
   width: 18px;
   height: 18px;
   background-color: #999999;
@@ -306,12 +306,12 @@
   animation: st-sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
-.storyrocks-collection .spinner .bounce1 {
+.storyrocks-collection .storyRocks-spinner .storyRocks-bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
-.storyrocks-collection .spinner .bounce2 {
+.storyrocks-collection .storyRocks-spinner .storyRocks-bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
