@@ -43,21 +43,21 @@ document.head.appendChild(script);
         var Div = document.getElementsByClassName('storyrocks-collection')[0];
 
         // HTML for story popup to be added to page
-        var baseHTML = '<div class="storytime" style="opacity: 0; display: none;z-index:2000;">' +
-			'<div class="story-cover"></div>' +
-			'<div class="story-window">' +
-			'<a href="#" class="story-arrow left" onclick="socialStory.prev();"></a><a href="#" class="story-arrow right" onclick="socialStory.next();"></a>' +
+        var baseHTML = '<div class="storyRocks-storytime" style="opacity: 0; display: none;z-index:2000;">' +
+			'<div class="storyRocks-story-cover"></div>' +
+			'<div class="storyRocks-story-window">' +
+			'<a href="#" class="storyRocks-story-arrow storyRocks-left" onclick="socialStory.prev();"></a><a href="#" class="storyRocks-story-arrow storyRocks-right" onclick="socialStory.next();"></a>' +
 				'<div class="story-nav">' +
-					'<div class="story-nav-left"><img class="story-icon" src="" /> <span class="story-text"></span><span class="story-date"></span></div><div class="story-nav-right"><a href="#" class="close story-close" onclick="socialStory.close();"></a></div>' +
+					'<div class="storyRocks-story-nav-left"><img class="storyRocks-story-icon" src="" /> <span class="storyRocks-story-text"></span><span class="storyRocks-story-date"></span></div><div class="storyRocks-story-nav-right"><a href="#" class="storyRocks-close story-close" onclick="socialStory.close();"></a></div>' +
 				'</div>' +
-				'<div class="story-timeline"></div>' +
-				'<div class="story-video" >' +
+				'<div class="storyRocks-story-timeline"></div>' +
+				'<div class="storyRocks-story-video" >' +
 					'<video class="story-next video" preload="auto" src="" poster="https://cdn.jsdelivr.net/gh/anxovatomica/storyrocks/negre.jpg" playsinline></video>' +
 					'<img class="story-next images" loading="auto" src="">' +
 				'</div>' +
-				'<div class="spinner">' +
-					'<div class="bounce1"></div>' +
-					'<div class="bounce2"></div>' +
+				'<div class="storyRocks-spinner">' +
+					'<div class="storyRocks-bounce1"></div>' +
+					'<div class="storyRocks-bounce2"></div>' +
 					'<div class="bounce3"></div>' +
 				'</div>' +
 			'</div>' +
@@ -76,45 +76,45 @@ for(let i = 0; i < json.length; i++) {
     //Appears clickable but no link added
     var link = document.createElement("a");
     link.id = i;
-    link.className = "link";
+    link.className = "storyRocks-link";
     link.href = "javascript:void(0);";
     link.style.borderBottom = 0;
     link.setAttribute("onclick", "socialStory.launch(this.id);");
     document.getElementById("stories").appendChild(link);
     //Div
     var div = document.createElement("DIV");
-    div.className = "avatar";
-    document.getElementsByClassName("link")[i].appendChild(div);
+    div.className = "storyRocks-avatar";
+    document.getElementsByClassName("storyRocks-link")[i].appendChild(div);
     //Outdoor circle
     var circle = document.createElement("DIV");
-    circle.className = "circle";
-    document.getElementsByClassName("avatar")[i].appendChild(circle);
+    circle.className = "storyRocks-circle";
+    document.getElementsByClassName("storyRocks-avatar")[i].appendChild(circle);
     //Img
     var img = document.createElement("IMG");
-    img.className = "img";
-    document.getElementsByClassName("circle")[i].appendChild(img);
-    document.getElementsByClassName("avatar")[i].setAttribute("id", "story" + i);
-    document.getElementsByClassName("img")[i].src= json[i].avatar
+    img.className = "storyRocks-img";
+    document.getElementsByClassName("storyRocks-circle")[i].appendChild(img);
+    document.getElementsByClassName("storyRocks-avatar")[i].setAttribute("id", "story" + i);
+    document.getElementsByClassName("storyRocks-img")[i].src= json[i].avatar
     
     //SVG - Active story
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 100 100");
-    svg.setAttribute("class", "active");
+    svg.setAttribute("class", "storyRocks-active");
     //svg.style.display = "none"
-    document.getElementsByClassName("circle")[i].appendChild(svg);
+    document.getElementsByClassName("storyRocks-circle")[i].appendChild(svg);
     //Indoor circle
     var inCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
     inCircle.setAttributeNS(null,"cx", "50");
     inCircle.setAttributeNS(null,"cy", "50");
     inCircle.setAttributeNS(null,"r", "45");
-    document.getElementsByClassName("active")[i].appendChild(inCircle);
+    document.getElementsByClassName("storyRocks-active")[i].appendChild(inCircle);
     
     //SVG - Inactive story
     var svg2 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg2.setAttribute("viewBox", "0 0 100 100");
-    svg2.setAttribute("class", "inactive");
+    svg2.setAttribute("class", "storyRocks-inactive");
     svg2.style.display = "none"
-    document.getElementsByClassName("circle")[i].appendChild(svg2);
+    document.getElementsByClassName("storyRocks-circle")[i].appendChild(svg2);
     //Indoor circle
     var outCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
     outCircle.setAttributeNS(null,"cx", "50");
@@ -123,13 +123,13 @@ for(let i = 0; i < json.length; i++) {
     outCircle.setAttributeNS(null,"stroke", "grey");
     outCircle.setAttributeNS(null,"stroke-width", "3");
     outCircle.setAttributeNS(null,"fill", "none");
-    document.getElementsByClassName("inactive")[i].appendChild(outCircle);
+    document.getElementsByClassName("storyRocks-inactive")[i].appendChild(outCircle);
     
     //Set name
     var name = document.createElement("DIV");
     name.className = "name";
     name.innerHTML = json[i].title;
-    document.getElementsByClassName("avatar")[i].appendChild(name);
+    document.getElementsByClassName("storyRocks-avatar")[i].appendChild(name);
     document.getElementsByClassName("name")[i].setAttribute("style", "text-align: center;margin-top: 100%;");
   }
 
@@ -155,19 +155,19 @@ function launch(num) {
         // Create timeline elements by looping through story items
         var i;
         for (i = 0; i < json[start].slides.length; i++) {
-            timelineHTML = timelineHTML + '<div class="story-timeline-item"><div class="story-timeline-line"></div><div class="story-timeline-line-active story-active-' + i + '" style="width: 0%;"></div></div>';
+            timelineHTML = timelineHTML + '<div class="storyRocks-story-timeline-item"><div class="storyRocks-story-timeline-line"></div><div class="storyRocks-story-timeline-line-active story-active-' + i + '" style="width: 0%;"></div></div>';
         }
         // Add timeline HTML to storytime div element
-        var storyTimeline = document.getElementsByClassName('story-timeline')[0];
+        var storyTimeline = document.getElementsByClassName('storyRocks-story-timeline')[0];
         storyTimeline.innerHTML = timelineHTML;
         
     	// Get HTML elements
-        storyTime = document.getElementsByClassName('storytime')[0];
-        storySpinner = document.getElementsByClassName('spinner')[0];
+        storyTime = document.getElementsByClassName('storyRocks-storytime')[0];
+        storySpinner = document.getElementsByClassName('storyRocks-spinner')[0];
         thisTimeline = document.getElementsByClassName('story-active-' + slide)[0];
-        var icon = document.getElementsByClassName('story-icon')[0];
-        var text = document.getElementsByClassName('story-text')[0];
-        var date = document.getElementsByClassName('story-date')[0];
+        var icon = document.getElementsByClassName('storyRocks-story-icon')[0];
+        var text = document.getElementsByClassName('storyRocks-story-text')[0];
+        var date = document.getElementsByClassName('storyRocks-story-date')[0];
         video = document.getElementsByClassName("video")[0];
         image = document.getElementsByClassName("images")[0];
 
@@ -186,9 +186,9 @@ function launch(num) {
         
         //Don't let the window move while spinner is on
         /*if(video.offsetWidth != 0){
-            document.getElementsByClassName("story-window")[0].style.width = video.offsetWidth + "px"
+            document.getElementsByClassName("storyRocks-story-window")[0].style.width = video.offsetWidth + "px"
         }else if(image.offsetWidth != 0){
-            document.getElementsByClassName("story-window")[0].style.width = image.offsetWidth+ "px"
+            document.getElementsByClassName("storyRocks-story-window")[0].style.width = image.offsetWidth+ "px"
         }*/
         
         
@@ -221,11 +221,11 @@ function launch(num) {
         //console.log("video "+ s1.clientWidth);
         
         /*if(s1 != 0){
-            document.getElementsByClassName("story-window")[0].style.width = s1.clientWidth + "px"
+            document.getElementsByClassName("storyRocks-story-window")[0].style.width = s1.clientWidth + "px"
         }else if(s2 != 0){
-            document.getElementsByClassName("story-window")[0].style.width = s2.clientWidth + "px"
+            document.getElementsByClassName("storyRocks-story-window")[0].style.width = s2.clientWidth + "px"
         }*/
-            //document.getElementsByClassName("story-window")[0].style.width = ig.clientWidth + "px"
+            //document.getElementsByClassName("storyRocks-story-window")[0].style.width = ig.clientWidth + "px"
         
         if(!file(fileExt)){
             
@@ -239,12 +239,12 @@ function launch(num) {
             video.load();
         
         // Pause/play video when click for desktop
-        document.getElementsByClassName("video")[0].onmousedown = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
-        document.getElementsByClassName("video")[0].onmouseup = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
-        
+        document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML="PAUSED";};
+        document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML=json[start].date;};
+        console.log("date")
         // Pause/play video when click for touch screen
-        document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
-        document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
+        document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML="PAUSED";};
+        document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML=json[start].date;};
         
         
         //Set styles
@@ -256,7 +256,7 @@ function launch(num) {
         video.oncanplay = function() {
             storySpinner.style.display = 'none';
             video.play();
-            //document.getElementsByClassName('story-video')[0].setAttribute("style", "min-width: " + video.offsetWidth + "px;");
+            //document.getElementsByClassName('storyRocks-story-video')[0].setAttribute("style", "min-width: " + video.offsetWidth + "px;");
             video.muted = false;
         };
 
@@ -281,14 +281,9 @@ function launch(num) {
             image.style.maxHeight = "100%"
             
             // Pause/play image when click for desktop
-            document.getElementsByClassName("images")[0].onmousedown = function(){pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
-            document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
+            document.getElementsByClassName("images")[0].onmousedown = function(){pause();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML="PAUSED";};
+            document.getElementsByClassName("images")[0].onmouseup = function(){imageUpdate();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML=json[start].date;};
             
-            // Pause/play video when click for touch screen
-            document.getElementsByClassName("images")[0].touchstart = function(){video.pause();document.getElementsByClassName("story-date")[0].innerHTML="PAUSED";};
-            document.getElementsByClassName("images")[0].touchend = function(){video.play();document.getElementsByClassName("story-date")[0].innerHTML=json[start].date;};
-        
-        
              // Add event listener to track image progress and run function imageUpdate()
             image.addEventListener('load', imageUpdate, false);
             // Add event listerer to run function imageEnded() at end of image time
@@ -392,9 +387,9 @@ function pause() {
                 clearInterval(downloadTimer);
                 width = 1;
                 //Hide active circle
-                document.getElementsByClassName("active")[start].style.display = "none"
-                //Show story has been seen(inactive)
-                document.getElementsByClassName("inactive")[start].style.display = ""
+                document.getElementsByClassName("storyRocks-active")[start].style.display = "none"
+                //Show story has been seen(storyRocks-inactive)
+                document.getElementsByClassName("storyRocks-inactive")[start].style.display = ""
                 start++;
                slide = 0;
             launch(start)
@@ -403,9 +398,9 @@ function pause() {
         else if(slide >= json[start].slides.length && start >= json.length -1 ){
             setTimeout(function() {
                 //Hide active circle
-                document.getElementsByClassName("active")[start].style.display = "none"
-                //Show that story has been seen(inactive)
-                document.getElementsByClassName("inactive")[start].style.display = ""
+                document.getElementsByClassName("storyRocks-active")[start].style.display = "none"
+                //Show that story has been seen(storyRocks-inactive)
+                document.getElementsByClassName("storyRocks-inactive")[start].style.display = ""
                 close();
                 start=0;
                 slide=0;
@@ -477,7 +472,7 @@ function pause() {
             slide = 0;
             var i;
             for (i = 0; i < json[start].length; i++) {
-                document.getElementsByClassName('story-timeline-line-active')[i].setAttribute("style", "width: 0%;");
+                document.getElementsByClassName('storyRocks-story-timeline-line-active')[i].setAttribute("style", "width: 0%;");
             }
         }, 500);
     }
