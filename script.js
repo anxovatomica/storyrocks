@@ -1,4 +1,3 @@
-
 //Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
