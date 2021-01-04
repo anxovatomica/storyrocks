@@ -2,7 +2,7 @@
 //Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
-script.href = "https://www.cascoplegable.com/linus/storyrocks/letsrocks/socialstory.css";
+script.href = "https://cdn.jsdelivr.net/gh/anxovatomica/storyrocks/storyRocks-style.min.css";
 document.head.appendChild(script); 
 
 //Story Rocks
