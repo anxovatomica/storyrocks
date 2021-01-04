@@ -1,7 +1,9 @@
 //Load CSS 
 var script = document.createElement('link'); 
 script.rel = "stylesheet"
-script.href = "https://cdn.jsdelivr.net/gh/anxovatomica/storyrocks/storyRocks-style.min.css";
+//https://raw.githubusercontent.com/anxovatomica/storyrocks/master/storyRocks-style.css
+//https://cdn.jsdelivr.net/gh/anxovatomica/storyrocks/storyRocks-style.min.css
+script.href = "https://raw.githubusercontent.com/anxovatomica/storyrocks/master/storyRocks-style.css";
 document.head.appendChild(script); 
 
 //Story Rocks
