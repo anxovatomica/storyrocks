@@ -148,7 +148,7 @@ for(let i = 0; i < json.length; i++) {
 
 function launch(num) {
        
-        var divs = document.querySelectorAll("html > div:not(.storyrocks-collection)");
+        var divs = document.querySelectorAll("body > div:not(.storyrocks-collection)");
         for (var index = 0; index < divs.length; index++) {
             console.log(divs[index]);
             divs[index].setAttribute("style", "z-index: -1")
