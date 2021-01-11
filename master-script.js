@@ -147,17 +147,13 @@ for(let i = 0; i < json.length; i++) {
     }
 
 function launch(num) {
-	
-	/*		TEST */
-	var divs = document.querySelectorAll("body > div:not(.storyrocks-collection)");
+       
+        var divs = document.querySelectorAll("html > div:not(.storyrocks-collection)");
         for (var index = 0; index < divs.length; index++) {
             console.log(divs[index]);
             divs[index].setAttribute("style", "z-index: -1")
         }
-       /*		TEST */
-	
-	
-	
+
         document.getElementsByTagName("body")[0].style.overflow =  "hidden";
 
        var timelineHTML = '';
@@ -184,7 +180,6 @@ function launch(num) {
         // Show lightbox
         if (start == 0) {
             storyTime.setAttribute("style", "display: block; opacity: 0;z-index:2000;");
-            
         } else {
             storyTime.setAttribute("style", "display: block; opacity: 1; z-index:2000;");
             
@@ -251,7 +246,7 @@ function launch(num) {
         // Pause/play video when click for desktop
         document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML="PAUSED";};
         document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML=json[start].date;};
-        console.log("date")
+        console.log("dd");
         // Pause/play video when click for touch screen
         document.getElementsByClassName("video")[0].touchstart = function(){video.pause();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML="PAUSED";};
         document.getElementsByClassName("video")[0].touchend = function(){video.play();document.getElementsByClassName("storyRocks-story-date")[0].innerHTML=json[start].date;};
