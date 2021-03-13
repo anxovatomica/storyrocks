@@ -20,7 +20,7 @@ document.head.appendChild(script);
     var storySpinner;
 
     this.Story = function() {
-        page-container
+ 
 
         
 
