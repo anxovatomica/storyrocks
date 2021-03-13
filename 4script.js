@@ -428,7 +428,7 @@ function prev() {
     
 }
 
-/*function close() {
+function close() {
     //Unblock scroll
     document.getElementsByTagName("body")[0].style.overflow =  "auto";
     //Clear time interval for pictures
@@ -449,29 +449,8 @@ function prev() {
         }
     }, 500);
 	 document.getElementById("page-container").setAttribute("style", "z-index: 0; position: initial;")
-}*/
-function close() {
-        //Unblock scroll
-        //document.getElementsByTagName("body")[0].style.overflow =  "auto";
-        //Clear time interval for pictures
-        clearInterval(downloadTimer);
-        //width = 1;
-    	// Pause currently playing video
-        video.pause();
-        // Hide Social Story popup
-        storyTime.setAttribute("style", "opacity: 0;");
-        // After 500ms set stoyrtime element to display:none and reset all video timelines to 0%
-        setTimeout(function() {
-            storyTime.setAttribute("style", "opacity: 0; display: none;");
-            start = 0;
-            slide = 0;
-            var i;
-            for (i = 0; i < json[start].length; i++) {
-                document.getElementsByClassName('storyRocks-story-timeline-line-active')[i].setAttribute("style", "width: 0%;");
-            }
-        }, 500);
-        document.getElementById("page-container").setAttribute("style", "z-index: 0; position: initial;")
-    }
+}
+
 
     // Plugin functions that can be called from your webpages
 
