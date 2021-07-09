@@ -1,3 +1,6 @@
+html {
+    overflow-y: scroll;
+}
 /* CSS for wordpress */
 .et-fixed-header {
     z-index: -1 !important;
