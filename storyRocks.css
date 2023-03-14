@@ -8,10 +8,10 @@ html {
 }
 /* End */
 
-
+/*
 .storyRocks-story-window {
   position: relative;
-}
+}*/
 
 .story-nav {
   position: absolute;
@@ -34,12 +34,12 @@ html {
   z-index: 5;
 }
 
-
+/*
 @media only screen and (max-width: 500px) {
   .storyRocks-story-window {
     width: 300px;
   }
-}
+}*/
 
 
 
@@ -211,8 +211,8 @@ html {
 }
 
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  .storyrocks-collection .storyRocks-story-window {
+  /* For mobile phones: .storyrocks-collection */
+   .storyRocks-story-window {
     z-index: 1000;
       position: fixed;
       top: 10%;
@@ -224,28 +224,32 @@ html {
   }
 }
 
-.storyrocks-collection .storyRocks-story-window {
-
-
-	z-index: 1010;
-	position: fixed;
-  	left: 50%;
-  	top: 50%;
-  	-webkit-transform: translate(-50%, -50%);
-  	transform: translate(-50%, -50%);
-  	max-height: 90%;
-  	display: block;
+@media only screen and (min-width: 768px) {
+  .storyRocks-story-video {
+    height: 800px;
+  }
 }
 
-.storyrocks-collection .storyRocks-story-video {
+/* .storyrocks-collection*/
+ .storyRocks-story-window {
+	z-index: 1010;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*.storyrocks-collection*/
+ .storyRocks-story-video {
 	display: block;
-	height: 80vh;
+	/*height: 80vh;*/
 	width: 100%;
 	object-fit: contain;
 	background-color: rgba(0,0,0,0.0);
 }
 
-.storyrocks-collection .storyRocks-story-video video {
+/*.storyrocks-collection*/
+ .storyRocks-story-video video {
 	max-height: 100% !important;
 	object-fit: contain;
 	display: inline-block;
