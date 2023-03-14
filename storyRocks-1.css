@@ -215,10 +215,10 @@ html {
    .storyRocks-story-window {
     z-index: 1000;
       position: fixed;
-      top: 10%;
+      /*top: 10%;
       left: 1%;
-      height: 80%;
-      width: 98%;
+      height: 80%;*/
+      width: 100%;
       background-color: #000000;
       opacity: 0.85;
   }
